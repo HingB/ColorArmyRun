@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Sourses/FovCamera.cs.meta
+guid: af4495661722d9548a31c7584f1cb7fc
+========
+guid: 17bde295b1f912e4081677ea04a1117d
+>>>>>>>> 23cf5260a2af6598b581f4ad367d8e8b4476480e:Assets/Sourses/Fog.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

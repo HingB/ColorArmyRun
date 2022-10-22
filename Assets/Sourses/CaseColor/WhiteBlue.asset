@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4acadad9b6f6e1640a1b7d07933b6e7f, type: 3}
+  m_Name: WhiteBlue
+  m_EditorClassIdentifier: 
+  <Color>k__BackingField: {r: 0, g: 0.9023998, b: 1, a: 1}
+  <DissolveMainColor>k__BackingField: {r: 0, g: 0.91764706, b: 1, a: 1}
+  <DissolveColor>k__BackingField: {r: 0.29803923, g: 1, b: 1, a: 1}
+  <Friend>k__BackingField: {fileID: 2100000, guid: f4b6002ba272b364cac465d2d39ed99e, type: 2}
+  <BrushHandle>k__BackingField: {fileID: 2100000, guid: 26db254af7fcaa442b33fb91dcb0de3c, type: 2}
