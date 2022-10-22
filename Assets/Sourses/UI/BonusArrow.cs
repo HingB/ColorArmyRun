@@ -1,6 +1,5 @@
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animation))]

@@ -7,7 +7,7 @@ public class Good : ScriptableObject
     [SerializeField] private int _price;
     [SerializeField] private int _number;
     [SerializeField] private Sprite _image;
-    [SerializeField] private GameObject _self;
+    [SerializeField] private Skin _self;
     [SerializeField] private bool _bought;
     [SerializeField] private bool _selected;
 
@@ -17,7 +17,7 @@ public class Good : ScriptableObject
     public bool Bought => _bought;
     public bool Selected => _selected;
     public Sprite Image => _image;
-    public GameObject Self => _self;
+    public Skin Self => _self;
 
     public void Buy()
     {
@@ -29,6 +29,8 @@ public class Good : ScriptableObject
     {
         _selected = true;
         PlayerPrefs.SetInt("Select" + _number, 1);
+
+        _shop.OnNewSkinSelected(_self);
     }
 
     public void UnSelect()
@@ -42,5 +44,8 @@ public class Good : ScriptableObject
         _shop = shop;
         _bought = PlayerPrefs.GetInt("Good" + _number) == 1;
         _selected = PlayerPrefs.GetInt("Select" + _number) == 1;
+
+        if (_selected)
+            _shop.OnNewSkinSelected(_self);
     }
 }

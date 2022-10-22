@@ -11,6 +11,7 @@ public class CoinCollector : MonoBehaviour
     public event UnityAction<int> OnCoinsValueChanged;
     public static CoinCollector Instance { get; private set; }
     public int Money => _coins;
+    public int CollectedMoney => _collectedCoins;
 
     public void AddCoin()
     {
@@ -24,9 +25,7 @@ public class CoinCollector : MonoBehaviour
         if (value < 0)
             return;
 
-        _coins += value;
         _collectedCoins += value;
-        Notyfy();
     }
 
     public void RemoveCoins(int value)
@@ -39,12 +38,16 @@ public class CoinCollector : MonoBehaviour
 
     public void AcceptCoins()
     {
+        _coins += _collectedCoins;
 
+        Notyfy();
+        YandexLeaderboard.Instance.AddPlayerToLeaderboard(_coins);
     }
 
-    public void MultyplyCoins()
+    public void MultyplyCoins(int modul)
     {
-        int coinsToAdd = (_collectedCoins * _modulator) - _collectedCoins;
+        int coinsToAdd = (_collectedCoins * modul) - _collectedCoins;
+        Debug.Log(modul);
 
         AddCoin(coinsToAdd);
     }
@@ -63,11 +66,13 @@ public class CoinCollector : MonoBehaviour
     private void LoadData()
     {
         _coins = PlayerPrefs.GetInt("Coins");
+        Debug.Log(_coins);
         OnCoinsValueChanged?.Invoke(_coins);
     }
 
     private void SaveData()
     {
+        Debug.Log("Save");
         PlayerPrefs.SetInt("Coins", _coins);
     }
 
@@ -76,8 +81,10 @@ public class CoinCollector : MonoBehaviour
         Instance = this;
     }
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
-        SaveData();
+        //SaveData();
     }
+#endif
 }

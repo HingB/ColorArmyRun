@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e5794cdedda6884c9975d6ced31e194, type: 3}
   m_Name: Hat
   m_EditorClassIdentifier: 
-  _price: 200
+  _price: 350
   _number: 0
   _image: {fileID: 21300000, guid: b40eb46c386b5d247a3b51e22462a7e1, type: 3}
-  _self: {fileID: 0}
-  _bought: 0
+  _self: {fileID: -2114774385290544305, guid: 6ebb3637caa2d4648b90fa93dfdf7160, type: 3}
+  _bought: 1
+  _selected: 1
