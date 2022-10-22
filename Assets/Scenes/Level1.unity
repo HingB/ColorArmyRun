@@ -4277,7 +4277,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8342620613723773353, guid: 775f5fde0494fc2468174549b16b2a6a, type: 3}
       propertyPath: currentLanguage
-      value: Turkish
+      value: English
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342620613723773353, guid: 775f5fde0494fc2468174549b16b2a6a, type: 3}
+      propertyPath: defaultLanguage
+      value: English
       objectReference: {fileID: 0}
     - target: {fileID: 8411009620659173322, guid: 775f5fde0494fc2468174549b16b2a6a, type: 3}
       propertyPath: m_AnchorMax.x

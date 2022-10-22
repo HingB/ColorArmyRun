@@ -1,23 +1,25 @@
 using System;
 using UnityEngine;
+using System.Linq;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] private Transform _container;
-    [SerializeField] private ShopObject _template;
+    [SerializeField] private ShopObject[] _goods;
     [SerializeField] private CoinCollector _moneyHolder;
+    [SerializeField] private TMP_Text _infoText;
+    [SerializeField] private GameObject _notyfication;
 
-    internal int GetAbleToBuyGoodsCount()
+    public int GetAbleToBuyGoodsCount()
     {
-        throw new NotImplementedException();
+        return _goods.Where(good => _moneyHolder.Money >= good.Good.Price).Count();
     }
 
-    internal void ShowItemsToBuyInfo(int count)
+    public void ShowItemsToBuyInfo(int count)
     {
-        throw new NotImplementedException();
+        _notyfication.SetActive(true);
+        _infoText.text = count.ToString();
     }
-
-    [SerializeField] private Good[] _goods;
 
     public bool TryBuy(Good good)
     {
@@ -31,13 +33,26 @@ public class Shop : MonoBehaviour
         return false;
     }
 
-    private void Start()
+    public void UnSelectAll()
     {
         foreach (var good in _goods)
         {
-            ShopObject shopObject = Instantiate(_template, _container);
-
-            shopObject.Init(good, this);
+            good.Good.UnSelect();
         }
+    }
+
+    private void OnEnable()
+    {
+        _notyfication.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        foreach (var good in _goods)
+        {
+            good.Init(this);
+        }
+
+        gameObject.SetActive(false);
     }
 }
