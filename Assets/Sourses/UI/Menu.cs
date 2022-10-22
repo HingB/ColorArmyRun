@@ -51,6 +51,7 @@ public class Menu : MonoBehaviour
             _sceneLoader.RemoveColor();
         }
 
+        CoinCollector.Instance.AcceptCoins();
         _sceneLoader.NextScene();
     }
 }

@@ -6,7 +6,7 @@ public class YandexLeaderboard : MonoBehaviour
 {
     private LeaderboardView _leaderboardView;
 
-    private const string _leaderboardName = "leaders";
+    private const string _leaderboardName = "BestOfTheBest";
     public static YandexLeaderboard Instance { get; private set; }
 
     private void Awake()

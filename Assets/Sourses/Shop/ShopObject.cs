@@ -37,11 +37,19 @@ public class ShopObject : MonoBehaviour
         }
 
         UpdateState();
+        UpdateText();
     }
 
     private void UpdateState()
     {
-        _lock.SetActive(!_good.Bought);
+        if (_good.Bought == false)
+        {
+            _lock.SetActive(!_shop.CheckAbilityToBuy(Good));
+        }
+        else
+        {
+            _lock.SetActive(false);
+        }
     }
 
     private void UpdateText()

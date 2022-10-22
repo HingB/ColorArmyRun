@@ -12,7 +12,12 @@ public class Shop : MonoBehaviour
 
     public int GetAbleToBuyGoodsCount()
     {
-        return _goods.Where(good => _moneyHolder.Money >= good.Good.Price).Count();
+        return _goods.Where(good => _moneyHolder.Money >= good.Good.Price && good.Good.Bought == false).Count();
+    }
+
+    public bool CheckAbilityToBuy(Good good)
+    {
+        return _moneyHolder.Money >= good.Price;
     }
 
     public void ShowItemsToBuyInfo(int count)
@@ -39,6 +44,11 @@ public class Shop : MonoBehaviour
         {
             good.Good.UnSelect();
         }
+    }
+
+    public void OnNewSkinSelected(Skin skin)
+    {
+        FindObjectOfType<Player>().ChangeSkin(skin);
     }
 
     private void OnEnable()

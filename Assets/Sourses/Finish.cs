@@ -29,6 +29,7 @@ public class Finish : MonoBehaviour
     private Monetization _monetization;
     private float _timeLife;
     private int _circle = 0;
+    private const int MoneyForOneGuy = 5;
 
     private void Start()
     {
@@ -87,14 +88,16 @@ public class Finish : MonoBehaviour
 
         SceneLoader.Instance.SaveLevel(SceneManager.GetActiveScene().buildIndex + 1);
         SceneLoader.Instance.SaveColor((CasleSide)_chekPaint.CurrentPaintSide, _caseMaterial.Color);
-        StartCoroutine(AwitAndOpen(_winPanel, 4));
-        StartCoroutine(_monetization.ShowInterstitialAfterWhile(4.5f));
+        CoinCollector.Instance.AddCoin(CoinCollector.Instance.GetComponent<FriendCase>().GetFriendCount() * MoneyForOneGuy);
+        StartCoroutine(AwitAndOpen(_winPanel, 2));
+        StartCoroutine(_monetization.ShowInterstitialAfterWhile(2.2f));
     }
 
     private IEnumerator AwitAndOpen(GameObject gameObject, float time)
     {
         yield return new WaitForSeconds(time);
         _menu.OpenPanel(_winPanel);
+        GameStage.Instance.StopGame();
     }
 
     private void OnTriggerEnter(Collider other)

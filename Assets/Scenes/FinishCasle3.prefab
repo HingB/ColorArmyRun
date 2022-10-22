@@ -4286,10 +4286,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paintableTexture: {fileID: 0}
   interval: 0
-  async: 1
+  async: 0
   downsampleSteps: 3
   registeredPaintableTexture: {fileID: 0}
-  cooldown: -178.5694
+  cooldown: -179.76735
   currentReader:
     dirty: 1
     requested: 0

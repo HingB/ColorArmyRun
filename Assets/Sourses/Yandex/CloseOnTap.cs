@@ -6,10 +6,11 @@ using UnityEngine.EventSystems;
 public class CloseOnTap : MonoBehaviour
 {
     [SerializeField] private UnityEvent _onClose;
+    [SerializeField] private UnityEvent _onOpen;
 
     private void OnEnable()
     {
-        EventSystem.current.SetSelectedGameObject(gameObject);
+        _onOpen?.Invoke();
     }
 
     private void Update()
