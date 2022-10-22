@@ -4,13 +4,13 @@ using UnityEngine.Events;
 public class CoinCollector : MonoBehaviour
 {
     [SerializeField] private int _modulator = 3;
+    [SerializeField] private int _coins;
 
-    private int _coins;
     private int _collectedCoins = 0;
 
     public event UnityAction<int> OnCoinsValueChanged;
-    public int Money => _coins;
     public static CoinCollector Instance { get; private set; }
+    public int Money => _coins;
 
     public void AddCoin()
     {
@@ -74,5 +74,10 @@ public class CoinCollector : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
+
+    private void OnValidate()
+    {
+        SaveData();
     }
 }
